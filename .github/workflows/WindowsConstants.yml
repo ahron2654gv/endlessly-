@@ -1,0 +1,19 @@
+ Script Function:   Displaying important debugging text in a listbox
+
+                    The maximum item numer in this listbox can be limited
+                    so that the old items get deleted, when a new entry comes in                    
+#ce ----------------------------------------------------------------------------
+
+#include <GuiListBox.au3>
+#include <WindowsConstants.au3>
+#include <GUIConstants.au3>
+
+Global $debugCombomaxlines = 8, $debug_on = 1 ;Debug_on: enables-disables the debugging window. $debugCombomaxlines: How many items shall be always present in the list box.
+
+
+If $debug_on = 1 Then
+    Global $debug = GUICreate("DebugLog", 320, 170, Default, Default, BitOR($WS_THICKFRAME, $WS_MINIMIZEBOX))
+    Global $debug_label = GUICtrlCreateLabel("Debug Last Active = 00:00:00", 4, 4)
+    Global $idDEBUGListBox = GUICtrlCreateList("", 2, 22, 300, 130)
+    GUISetState(@SW_SHOW, $debug)
+EndIf
